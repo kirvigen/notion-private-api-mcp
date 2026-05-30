@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Minimal MCP server for the Notion private (internal) API",
+  "mcpName": "io.github.kirvigen/notion-private-api-mcp",
   "license": "MIT",
   "author": "kir.vigen <kir.vigen@yandex.ru>",
   "homepage": "https://github.com/kirvigen/notion-private-api-mcp#readme",
@@ -16,10 +17,17 @@
   },
   "keywords": [
     "notion",
+    "notion-api",
+    "notion-mcp",
     "mcp",
+    "mcp-server",
     "model-context-protocol",
     "claude",
-    "llm"
+    "claude-desktop",
+    "anthropic",
+    "llm",
+    "ai",
+    "unofficial-api"
   ],
   "engines": {
     "node": ">=18"

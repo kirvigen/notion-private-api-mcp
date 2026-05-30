@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.kirvigen/notion-private-api-mcp",
+  "description": "Unofficial Notion MCP server via the private API (token_v2): full read/write, no integration token.",
+  "version": "0.2.0",
+  "repository": {
+    "url": "https://github.com/kirvigen/notion-private-api-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "notion-private-mcp",
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "NOTION_TOKEN_V2",
+          "description": "Notion session cookie (token_v2) from your browser.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "NOTION_PRIVATE_API_BASE",
+          "description": "Notion API base URL.",
+          "isRequired": false,
+          "default": "https://www.notion.so"
+        }
+      ]
+    }
+  ]
+}
