@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.local
+*.local
+
+# Logs
+*.log
+/tmp/*.log
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,38 @@
+{
+  "name": "notion-private-mcp",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal MCP server for the Notion private (internal) API",
+  "license": "MIT",
+  "author": "kir.vigen <kir.vigen@yandex.ru>",
+  "homepage": "https://github.com/kirvigen/notion-private-api-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirvigen/notion-private-api-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kirvigen/notion-private-api-mcp/issues"
+  },
+  "keywords": [
+    "notion",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "llm"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "notion-private-mcp": "./src/server.js"
+  },
+  "scripts": {
+    "start": "node ./src/server.js",
+    "check": "node --check ./src/server.js && node --check ./src/notion-client.js && node --check ./src/notion-blocks.js && node --check ./src/markdown.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  }
+}
