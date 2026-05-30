@@ -1,7 +1,6 @@
 {
   "name": "notion-private-mcp",
   "version": "0.2.0",
-  "private": true,
   "type": "module",
   "description": "Minimal MCP server for the Notion private (internal) API",
   "mcpName": "io.github.kirvigen/notion-private-api-mcp",
@@ -35,6 +34,13 @@
   "bin": {
     "notion-private-mcp": "./src/server.js"
   },
+  "files": [
+    "src",
+    "server.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "start": "node ./src/server.js",
     "check": "node --check ./src/server.js && node --check ./src/notion-client.js && node --check ./src/notion-blocks.js && node --check ./src/markdown.js"
