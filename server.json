@@ -1,5 +1,5 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.kirvigen/notion-private-api-mcp",
   "description": "Unofficial Notion MCP server via the private API (token_v2): full read/write, no integration token.",
   "version": "0.2.0",
