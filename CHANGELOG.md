@@ -4,6 +4,16 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- `Dockerfile` and `.dockerignore` for container-based runs and registry introspection (Glama).
+
+### Changed
+- Validate `NOTION_TOKEN_V2` lazily (on the first Notion API call) instead of at startup, so the
+  server boots and answers `tools/list` without a token. This is required by MCP registry
+  introspection and improves the no-config first-run experience.
+
 ## [0.2.0] - 2026-05-30
 
 ### Added

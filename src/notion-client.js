@@ -58,10 +58,19 @@ export class NotionClient {
   constructor() {
     this.token = env("NOTION_TOKEN_V2");
     this.privateApiBase = env("NOTION_PRIVATE_API_BASE", "https://www.notion.so").replace(/\/$/, "");
+    // Note: the token is validated lazily (see requireToken) rather than in the
+    // constructor, so the MCP server can boot and answer tools/list without it.
+    // This is what registry introspection (e.g. Glama) relies on; the token is
+    // only needed when a tool actually calls the Notion API.
+  }
 
+  requireToken() {
     if (!this.token) {
-      throw new Error("NOTION_TOKEN_V2 is required.");
+      throw new Error(
+        "NOTION_TOKEN_V2 is required. Set it in the environment to call the Notion API.",
+      );
     }
+    return this.token;
   }
 
   normalizeId(input) {
@@ -69,11 +78,12 @@ export class NotionClient {
   }
 
   async privatePost(path, payload) {
+    const token = this.requireToken();
     const response = await fetch(`${this.privateApiBase}${path}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `token_v2=${this.token}`,
+        Cookie: `token_v2=${token}`,
       },
       body: JSON.stringify(payload),
     });
