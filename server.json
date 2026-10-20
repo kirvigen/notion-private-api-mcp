@@ -26,7 +26,7 @@
           "name": "NOTION_PRIVATE_API_BASE",
           "description": "Notion API base URL.",
           "isRequired": false,
-          "default": "https://www.notion.so"
+          "default": "https://app.notion.com"
         }
       ]
     }

@@ -57,7 +57,9 @@ function isCrossCellError(error) {
 export class NotionClient {
   constructor() {
     this.token = env("NOTION_TOKEN_V2");
-    this.privateApiBase = env("NOTION_PRIVATE_API_BASE", "https://www.notion.so").replace(/\/$/, "");
+    // www.notion.so answers requests with Node's default user agent with a
+    // Cloudflare 403 page; app.notion.com (where Notion now serves the app) works.
+    this.privateApiBase = env("NOTION_PRIVATE_API_BASE", "https://app.notion.com").replace(/\/$/, "");
     // Note: the token is validated lazily (see requireToken) rather than in the
     // constructor, so the MCP server can boot and answer tools/list without it.
     // This is what registry introspection (e.g. Glama) relies on; the token is
@@ -83,6 +85,7 @@ export class NotionClient {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "User-Agent": "notion-private-mcp (+https://github.com/kirvigen/notion-private-api-mcp)",
         Cookie: `token_v2=${token}`,
       },
       body: JSON.stringify(payload),

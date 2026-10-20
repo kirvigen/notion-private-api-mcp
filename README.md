@@ -51,7 +51,7 @@ this is the fastest path. For production / multi-tenant apps, use the
 
 ## ⚠️ Important: this uses Notion's private API
 
-This server talks to Notion's **undocumented internal API** (`https://www.notion.so/api/v3`),
+This server talks to Notion's **undocumented internal API** (`https://app.notion.com/api/v3`),
 **not** the official public API:
 
 - Auth is your browser cookie (`token_v2`) — effectively your account password. **Never commit it.**
@@ -101,12 +101,13 @@ Configured entirely through environment variables:
 | Variable | Required | Description |
 |---|---|---|
 | `NOTION_TOKEN_V2` | ✅ | Your Notion session cookie (`token_v2`) |
-| `NOTION_PRIVATE_API_BASE` | — | API base URL (default: `https://www.notion.so`) |
+| `NOTION_PRIVATE_API_BASE` | — | API base URL (default: `https://app.notion.com`) |
 
 ### Getting your `token_v2`
 
-1. Log in to Notion in your browser: <https://www.notion.so>
-2. Open DevTools (F12) → **Application** → **Cookies** → `https://www.notion.so`
+1. Log in to Notion in your browser: <https://app.notion.com>
+2. Open DevTools (F12) → **Application** → **Cookies** → `https://app.notion.com`
+   (`https://www.notion.so` on sessions that haven't moved to `app.notion.com` yet)
 3. Copy the value of the `token_v2` cookie.
 
 > 🔒 Treat it like a password. Keep it in your shell env or an untracked `.env` — never commit it.
