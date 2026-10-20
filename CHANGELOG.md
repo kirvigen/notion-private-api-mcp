@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Every API call failed with `HTTP 403` and a Cloudflare "Attention Required" page: `www.notion.so`
+  now blocks requests that carry Node's default user agent. The default `NOTION_PRIVATE_API_BASE`
+  is now `https://app.notion.com`, and requests send an identifying `User-Agent`.
+
 ### Added
 - `Dockerfile` and `.dockerignore` for container-based runs and registry introspection (Glama).
 
